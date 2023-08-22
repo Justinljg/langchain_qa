@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 llama-2-7b-chat/
+env
 
 # C extensions
 *.so
