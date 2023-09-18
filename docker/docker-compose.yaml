@@ -1,0 +1,24 @@
+version: "0.0.1"
+
+services:
+  streamlit-ui:
+    build:
+      context: .
+      dockerfile: docker/sl.Dockerfile
+    image: "justinljg/lc_sl:0.0.1"
+    ports:
+      - 8501:8501
+    depends_on:
+      - fastapi
+  fastapi:
+    build:
+      context: .
+      dockerfile: docker/fastapi.Dockerfile
+    image: "justinljg/lc_fastapi:0.0.1"
+    ports:
+      - 8000:8000
+    depends_on:
+      - redis-db
+    volumes: []
+  redis-db:
+    image: redis/redis-stack:latest
